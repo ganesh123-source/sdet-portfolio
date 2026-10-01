@@ -1,0 +1,24 @@
+name: API Tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install libraries
+        run: pip install pytest requests pytest-html
+
+      - name: Run API tests only
+        run: pytest tests/api/ -v
