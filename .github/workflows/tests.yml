@@ -18,7 +18,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install libraries
-        run: pip install pytest requests pytest-html
+        run: pip install pytest requests pytest-html selenium
 
       - name: Run API tests only
         run: pytest tests/api/ -v

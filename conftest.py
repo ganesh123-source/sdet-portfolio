@@ -1,9 +1,12 @@
 import pytest
 import requests
-from selenium import webdriver
-from pages.login_page import LoginPage
-from pages.securepage import SecurePage
-from pages.checkboxes_page import CheckBoxes
+try:
+    from selenium import webdriver
+    from pages.login_page import LoginPage
+    from pages.securepage import SecurePage
+    from pages.checkboxes_page import CheckBoxes
+except ImportError:
+    SELENIUM_AVAILABLE = False
 
 UI_BASE = "https://the-internet.herokuapp.com"
 API_BASE = "https://dummyjson.com"
